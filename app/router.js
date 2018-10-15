@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('email', { path:'/emails/:id' });
+  this.route('sent');
+  this.route('trash');
+  this.route('create', { path:'/emails/new' });
 });
 
 export default Router;

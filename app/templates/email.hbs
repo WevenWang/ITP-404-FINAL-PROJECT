@@ -1,0 +1,19 @@
+
+<div style="margin-left: 25%;padding:1px 16px;height:1000px;">
+
+    {{#link-to 'index'}}
+      Back
+    {{/link-to}}
+
+
+    <h1>Subject: {{model.subject}}</h1>
+    <h2>From: {{model.from}}</h2>
+    <h3>To: {{model.to}}</h3>
+
+    <p>Message: {{model.message}}</p>
+    <p>id: {{model.id}}</p>
+  </div>
+
+
+
+{{outlet}}
