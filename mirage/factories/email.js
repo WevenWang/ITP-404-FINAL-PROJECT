@@ -26,5 +26,12 @@ export default Factory.extend({
   {
     return faker.lorem.paragraphs();
 
+  },
+
+  starred()
+  {
+    return false;
   }
+
+
 });

@@ -1,7 +1,8 @@
-import Controller from '@ember/controller';
+import Component from '@ember/component';
 
-export default Controller.extend({
-  // starred: false,
+export default Component.extend({
+
+  starred: false,
   actions:{
     deleteEmail(email){
       let confirmed = window.confirm('Are you sure you want to delete this post?')
@@ -12,10 +13,10 @@ export default Controller.extend({
       }
 
     },
-    star(newValue) {
-      this.set('starred',newValue);
+    star(email,newValue) {
+      email.set('starred',newValue);
+      email.save();
 
-      // email.starred = (!email.starred);
 
     }
   }

@@ -1,37 +1,64 @@
 
 
+<div>
 
-<ul style="margin-left: 25%;padding:1px 16px;height:1000px; width:100%">
-  {{#each model as |email|}}
-  <li>
-    <strong>From:</strong>
-    {{#link-to "email" email.id}}
-      {{email.from}}
-    {{/link-to}}
-
-    <button type="button" style="float:right;margin-right:50%" onclick={{action "deleteEmail" email}}>
-      <img src="https://image.freepik.com/free-icon/trash-bin-symbol_318-10194.jpg" alt="trash_img"
-      style="height:30px">
-    </button>
+  <ul style="margin-left: 25%;padding:1px 16px;height:auto; width:100%">
+  <h3>Starred Email</h3>
 
 
-    <p style="width: 600px; white-space: nowrap; overflow:hidden;
-    text-overflow: ellipsis;">{{email.message}}</p>
+    {{#each model as |email|}}
+    {{#if email.starred}}
+      <li>
 
-    {{!-- {{#link-to "email" email.id}}
+          <SingleEmail @email = {{email}} />
 
-    {{/link-to}} --}}
+      </li>
 
+      <br>
 
-  </li>
-
-  <br>
+    {{/if}}
 
 
 
 
-  {{/each}}
-</ul>
+
+
+    {{/each}}
+  </ul>
+
+</div>
+
+<div>
+
+  <ul style="margin-left: 25%;padding:1px 16px;height:1000px; width:100%">
+
+
+    {{#each model as |email|}}
+
+
+    {{#unless email.starred}}
+
+    <li>
+
+        <SingleEmail @email = {{email}} />
+
+    </li>
+
+    <br>
+
+
+    {{/unless}}
+
+
+
+
+    {{/each}}
+  </ul>
+
+</div>
+
+
+
 
 
 
