@@ -1,6 +1,6 @@
 
 
-<div>
+<div  class="starred-section">
 
   <ul style="margin-left: 25%;padding:1px 16px;height:auto; width:100%">
   <h3>Starred Email</h3>
@@ -8,7 +8,7 @@
 
     {{#each model as |email|}}
     {{#if email.starred}}
-      <li>
+      <li data-test="with-star">
 
           <SingleEmail @email = {{email}} />
 
@@ -28,7 +28,7 @@
 
 </div>
 
-<div>
+<div  class="unstarred-section">
 
   <ul style="margin-left: 25%;padding:1px 16px;height:1000px; width:100%">
 
@@ -38,7 +38,7 @@
 
     {{#unless email.starred}}
 
-    <li>
+    <li data-test="without-star">
 
         <SingleEmail @email = {{email}} />
 

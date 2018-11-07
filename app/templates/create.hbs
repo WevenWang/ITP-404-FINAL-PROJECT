@@ -18,10 +18,10 @@
 
     <div>
       <label for="message">Message: </label>
-      {{textarea rows="8" cols="80" value=message}}
+      {{textarea rows="8" cols="80" id="message" value=message}}
     </div>
 
-    <button type="submit" style="width: 100px">Send</button>
+    <button data-test="send-email" type="submit" style="width: 100px">Send</button>
 
   </form>
 

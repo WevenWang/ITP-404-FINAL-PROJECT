@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import window from 'ember-window-mock';
 
 export default Component.extend({
 

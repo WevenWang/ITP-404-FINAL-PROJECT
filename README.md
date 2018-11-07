@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/WevenWang/itp404-gmail.svg?branch=master)](https://travis-ci.org/WevenWang/itp404-gmail)
+
 # gmail-part1
 
 This README outlines the details of collaborating on this Ember application.
