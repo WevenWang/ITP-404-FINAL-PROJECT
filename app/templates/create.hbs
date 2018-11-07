@@ -1,4 +1,4 @@
-<div style="margin-left: 25%;padding:1px 16px;height:1000px;">
+<div class="mainSection">
   <form onsubmit={{action "createEmail"}}>
     <div>
       <label for="from">From: </label>
@@ -21,7 +21,7 @@
       {{textarea rows="8" cols="80" id="message" value=message}}
     </div>
 
-    <button data-test="send-email" type="submit" style="width: 100px">Send</button>
+    <button data-test="send-email" type="submit">Send</button>
 
   </form>
 

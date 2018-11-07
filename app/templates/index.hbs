@@ -1,22 +1,21 @@
 
-
 <div  class="starred-section">
 
-  <ul style="margin-left: 25%;padding:1px 16px;height:auto; width:100%">
-  <h3>Starred Email</h3>
+  <ul id="starredSection">
+    <h3>Starred Email</h3>
 
 
     {{#each model as |email|}}
-    {{#if email.starred}}
-      <li data-test="with-star">
+      {{#if email.starred}}
+        <li data-test="with-star">
 
           <SingleEmail @email = {{email}} />
 
-      </li>
+        </li>
 
-      <br>
+        <br>
 
-    {{/if}}
+      {{/if}}
 
 
 
@@ -30,24 +29,24 @@
 
 <div  class="unstarred-section">
 
-  <ul style="margin-left: 25%;padding:1px 16px;height:1000px; width:100%">
+  <ul class="mainSection">
 
 
     {{#each model as |email|}}
 
 
-    {{#unless email.starred}}
+      {{#unless email.starred}}
 
-    <li data-test="without-star">
+        <li data-test="without-star">
 
-        <SingleEmail @email = {{email}} />
+          <SingleEmail @email = {{email}} />
 
-    </li>
+        </li>
 
-    <br>
+        <br>
 
 
-    {{/unless}}
+      {{/unless}}
 
 
 

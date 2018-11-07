@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, pauseTest, click, fillIn } from '@ember/test-helpers';
+import { visit, currentURL, click, fillIn } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import window, { reset } from 'ember-window-mock';
@@ -10,7 +10,7 @@ module('Acceptance | emails', function(hooks) {
   hooks.beforeEach(function(){
     reset()
   })
-  
+
   // hooks.beforeEach(function(){
   //   reset();
   // })

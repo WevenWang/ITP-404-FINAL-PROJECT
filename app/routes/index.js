@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import window from 'ember-window-mock';
+
 
 export default Route.extend({
 
