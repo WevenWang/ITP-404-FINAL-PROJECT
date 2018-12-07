@@ -1,60 +1,21 @@
+[![Build Status](https://travis-ci.org/WevenWang/ITP-404-FINAL-PROJECT.svg?branch=master)](https://travis-ci.org/WevenWang/ITP-404-FINAL-PROJECT)
 
-[![Build Status](https://travis-ci.org/WevenWang/itp404-gmail.svg?branch=master)](https://travis-ci.org/WevenWang/itp404-gmail)
+1. What problems are you trying to solve?
+Celebrities are the hot topics of a lot of casual conversations. Everyone wanna become part of the conversation. This app is a user customized celebrity data base that will help user store info about certain group of celebrities. The web will
 
-# gmail-part1
+2. Who is the primary audience
+The groups of primary audience would consist of high school kids and college students who are big fans of celebrities and pop culture.
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+3. How will project requirements be fulfilled
+The ember app will have basic CRUD functionalities for the user to customize the database. The user will be able to add, edit, delete and read any instance of the celebrities without any trouble. There also will be link on the sidebar navigating user to at least 4 different routes.
 
-## Prerequisites
+When the user click the save button in the add or edit page, the save button will display its text from Save to Saving.... Whenever the user makes any edit or creates any new celebrity, there will be form validations to make sure the user is inputting the right stuff.
 
-You will need the following things properly installed on your computer.
+The reusable/generic components will include async buttons, form validater, single-celebrity displayer and star button to feature any celebrity. The add-on will be ember-moment, which formats date into a proper and a neat form.
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+The tests will be cover all CRUD operations and some rendering tests will be done on various components and helpers.
 
-## Installation
 
-* `git clone <repository-url>` this repository
-* `cd gmail-part1`
-* `npm install`
 
-## Running / Development
-
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+4. Which addons do you think you will use and for what?
+Ember moment to format date.
