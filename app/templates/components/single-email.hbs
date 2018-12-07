@@ -1,13 +1,15 @@
-  <strong>From:</strong>
-  {{#link-to "email" email.id}}
-    {{email.from}}
+<strong>Name:</strong>
+  {{#link-to "celebrity" celebrity.id}}
+    {{celebrity.name}}
   {{/link-to}}
 
+
+
 <button
-  data-test="delete-email"
+  data-test="delete-celebrity"
   type="button"
   id="delete-button"
-  onclick={{action "deleteEmail" email}}
+  onclick={{action "deleteEmail" celebrity}}
 >
   <img
     src="https://image.freepik.com/free-icon/trash-bin-symbol_318-10194.jpg"
@@ -17,18 +19,27 @@
 
 
   <StarButton
-    @starred={{email.starred}}
-    @onClick={{action "star" email}}
+    @starred={{celebrity.starred}}
+    @onClick={{action "star" celebrity}}
   />
 
 
 
 
   <p>
-
-    {{truncate-text email.message 30}}
+    <strong>Motto:</strong>
+    {{truncate-text celebrity.motto 30}}
 
   </p>
+
+
+  <div id="edit-link">
+    {{#link-to "edit" celebrity.id}}
+      <strong>Edit</strong>
+    {{/link-to}}
+  </div>
+
+
 
 
 

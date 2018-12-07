@@ -1,10 +1,9 @@
 <div class="mainSection">
-  <h3>Add Your Celebrity</h3>
-  <form onsubmit={{action "createCelebrity"}}>
+  <form onsubmit={{action "editCelebrity"}}>
     <div>
       <label class="input-label" for="name">Name: </label>
-      {{input class="input-box" type="text" id="name" value=name}}
-      <NonzeroCheck data-test = "nonzero" class="my-class" @text={{name}}/>
+      {{input class="input-box" type="text" id="name" value=model.name}}
+      <NonzeroCheck data-test = "nonzero" class="my-class" @text={{model.name}}/>
     </div>
 
     <div>
@@ -13,7 +12,7 @@
         class="input-box"
         type="month"
         id="birthday"
-        value=birthday
+        value=model.birthday
         max="2018-01"
       }}
 
@@ -21,15 +20,19 @@
 
     <div>
       <label class="input-label" for="occupation">Occupation: </label>
-      {{input class="input-box" type="text" id="occupation" value=occupation}}
-      <NonzeroCheck data-test = "nonzero" class="my-class" @text={{occupation}}/>
+      {{input class="input-box" stype="text" id="occupation" value=model.occupation}}
+      <NonzeroCheck
+        data-test = "nonzero"
+        class="my-class"
+        @text={{model.occupation}}
+      />
     </div>
 
 
     <div>
       <label class="input-label" for="motto">Motto: </label>
-      {{textarea rows="8" cols="50" id="motto" value=motto}}
-      <NonzeroCheck data-test = "nonzero" class="my-class" @text={{motto}}/>
+      {{textarea rows="8" cols="80" id="motto" value=model.motto}}
+      <NonzeroCheck data-test = "nonzero" class="my-class" @text={{model.motto}}/>
     </div>
 
     <AsyncButton
@@ -40,14 +43,6 @@
     />
 
 
-    {{!-- <label>Background Color</label>
-    {{cl}} --}}
-
-
   </form>
 
 </div>
-
-
-
-{{outlet}}

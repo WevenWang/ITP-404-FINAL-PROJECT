@@ -1,9 +1,31 @@
-<div class="mainSection">
+<div  class="starred-section">
+
+  <ul id="starredSection">
+    <h3>Featured Celebrity</h3>
+
+
+    {{#each model as |celebrity|}}
+      {{#if celebrity.starred}}
+        <li data-test="with-star">
+
+          <SingleEmail @celebrity = {{celebrity}} />
+
+        </li>
+
+        <br>
+
+      {{/if}}
 
 
 
+
+
+
+    {{/each}}
+  </ul>
 
 </div>
+
 
 
 {{outlet}}

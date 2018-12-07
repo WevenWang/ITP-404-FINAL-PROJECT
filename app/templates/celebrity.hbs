@@ -1,0 +1,29 @@
+<div class="mainSection">
+
+  {{#link-to "index"}}
+    Back
+  {{/link-to}}
+
+
+
+
+  <h1 data-test="celebrity-name">Name: {{model.name}}</h1>
+  {{!-- 2018-08-25T16:38:07.131Z --}}
+  {{!-- moment add-on implementation here --}}
+  <h2 data-test="celebrity-birthday">Birthday: {{moment-format model.birthday "YYYY-MM" "YYYY-MM-DD"}}</h2>
+  <h3 data-test="celebrity-occupation">Occupation: {{model.occupation}}</h3>
+  <p data-test="celebrity-motto"><strong>Motto</strong>: {{model.motto}}</p>
+  <p data-test="celebrity-id">id: {{model.id}}</p>
+  <p>Featured: {{model.starred}}</p>
+
+
+
+
+
+
+
+</div>
+
+
+
+{{outlet}}

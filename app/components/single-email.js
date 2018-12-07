@@ -1,22 +1,24 @@
 import Component from '@ember/component';
 import window from 'ember-window-mock';
+// import RSVP from 'rsvp';
+// import { later } from '@ember/runloop';
 
 export default Component.extend({
 
   starred: false,
   actions:{
-    deleteEmail(email){
-      let confirmed = window.confirm('Are you sure you want to delete this post?')
+    deleteEmail(celebrity){
+      let confirmed = window.confirm('Are you sure you want to delete this celebrity?')
 
       if (confirmed)
       {
-        email.destroyRecord();
+        celebrity.destroyRecord();
       }
 
     },
-    star(email,newValue) {
-      email.set('starred',newValue);
-      email.save();
+    star(celebrity,newValue) {
+      celebrity.set('starred',newValue);
+      celebrity.save();
 
 
     }

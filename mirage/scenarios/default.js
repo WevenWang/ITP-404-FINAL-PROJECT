@@ -5,5 +5,5 @@ export default function(server) {
     This data will not be loaded in your tests.
   */
 
-  server.createList('email', 20);
+  server.createList('celebrity', 20);
 }

@@ -3,20 +3,13 @@ import RSVP from 'rsvp';
 import { later } from '@ember/runloop';
 
 export default Controller.extend({
-  actions:{
-    createCelebrity(event){
+  actions: {
+    editCelebrity(event) {
       event.preventDefault();
 
-      let celebrity = this.store.createRecord('celebrity',{
-        name: this.name,
-        motto: this.motto,
-        occupation: this.occupation,
-        birthday: this.birthday,
-        userAdded: true
-      });
-      celebrity.save().then(()=> {
-
-        this.transitionToRoute('index');
+      let celebrity = this.model;
+      celebrity.save().then(() => {
+        this.transitionToRoute('celebrity', celebrity.id);
       });
     },
 
@@ -27,8 +20,5 @@ export default Controller.extend({
         }, 2000);
       });
     }
-
-
-
   }
 });

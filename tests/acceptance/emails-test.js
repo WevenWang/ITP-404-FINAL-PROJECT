@@ -4,7 +4,7 @@ import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import window, { reset } from 'ember-window-mock';
 
-module('Acceptance | emails', function(hooks) {
+module('Acceptance | celebrities', function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
   hooks.beforeEach(function(){
@@ -16,12 +16,12 @@ module('Acceptance | emails', function(hooks) {
   // })
 
 
-  test('visiting / display starred and unstarred emails', async function(assert) {
-    server.create('email',{starred: true})
-    server.create('email',{starred: true})
-    server.create('email',{starred: false})
-    server.create('email',{starred: false})
-    server.create('email',{starred: false})
+  test('visiting / display all the celebrities ', async function(assert) {
+    server.create('celebrity',{starred: true})
+    server.create('celebrity',{starred: true})
+    server.create('celebrity',{starred: false})
+    server.create('celebrity',{starred: false})
+    server.create('celebrity',{starred: false})
 
 
     await visit('/');
@@ -35,26 +35,26 @@ module('Acceptance | emails', function(hooks) {
 
 
 
-  test('viewing a single email', async function(assert) {
-    server.create('email',{
-      from:"1381651300@163.com",
-      to:"davidTang@usc.edu",
-      subject:"Assignment",
-      message:"My assignment is not complete, I need extension.",
+  test('viewing a single celebrity', async function(assert) {
+    server.create('celebrity',{
+      name:"Sherine",
+      birthday:"1997-05",
+      occupation:"singer",
+      motto:"All for one. One for all.",
       starred: true})
 
 
 
-    await visit('/emails/1');
+    await visit('/celebrities/1');
     // await pauseTest();
 
 
 
-    assert.dom('[data-test="email-subject"]').hasText('Subject: Assignment');
-    assert.dom('[data-test="email-from"]').hasText('From: 1381651300@163.com');
-    assert.dom('[data-test="email-to"]').hasText('To: davidTang@usc.edu');
-    assert.dom('[data-test="email-message"]').hasText('Message: My assignment is not complete, I need extension.');
-    assert.dom('[data-test="email-id"]').hasText('id: 1');
+    assert.dom('[data-test="celebrity-name"]').hasText('Name: Sherine');
+    assert.dom('[data-test="celebrity-birthday"]').hasText('Birthday: 1997-05');
+    assert.dom('[data-test="celebrity-occupation"]').hasText('Occupation: singer');
+    assert.dom('[data-test="celebrity-motto"]').hasText('Motto: All for one. One for all.');
+    assert.dom('[data-test="celebrity-id"]').hasText('id: 1');
 
   });
 
@@ -63,55 +63,76 @@ module('Acceptance | emails', function(hooks) {
 
 
 
-  test('creating an email', async function(assert) {
-    server.createList('email',0);
-    await visit('/emails/new');
-    await fillIn('#from','1386134444@163.com');
-    await fillIn('#to','wyf@163.com');
-    await fillIn('#subject','emergency');
-    await fillIn('#message','This is an emergency message');
+  test('creating an celebrity', async function(assert) {
+    server.createList('celebrity',0);
+    await visit('/celebrities/new');
+    await fillIn('#name','Sherine');
+    await fillIn('#birthday','1999-02');
+    await fillIn('#occupation','emergency');
+    await fillIn('#motto','This is an emergency message');
 
-    await click('[data-test="send-email"]');
+    await click('[data-test="save-celebrity"]');
     // await pauseTest();
 
     assert.equal(currentURL(), '/');
 
     assert.dom('[data-test="without-star"]').exists({count:1});
-    assert.equal(server.db.emails[0].from,'1386134444@163.com')
-    assert.equal(server.db.emails[0].to,'wyf@163.com')
-    assert.equal(server.db.emails[0].subject,'emergency')
-    assert.equal(server.db.emails[0].message,'This is an emergency message')
+    assert.equal(server.db.celebrities[0].name,'Sherine')
+    assert.equal(server.db.celebrities[0].birthday,'1999-02')
+    assert.equal(server.db.celebrities[0].occupation,'emergency')
+    assert.equal(server.db.celebrities[0].motto,'This is an emergency message')
 
   });
 
-  test('deleting a single email', async function(assert) {
-    server.createList('email',2);
+  test('deleting a single celebrity', async function(assert) {
+    server.create('celebrity',{starred: false});
+    server.create('celebrity',{starred: false});
     window.confirm = () => true;
 
 
     await visit('/');
     // await pauseTest();
-    await click('[data-test="delete-email"]');
+    await click('[data-test="delete-celebrity"]');
     assert.equal(currentURL(), '/');
 
     assert.dom('[data-test="without-star"]').exists({count:1});
 
   });
 
-  test('cancelling deleting a single email', async function(assert) {
-    server.createList('email',2);
+  test('cancelling deleting a single celebrity', async function(assert) {
+    server.create('celebrity',{starred: false});
+    server.create('celebrity',{starred: false});
     window.confirm = () => false;
 
 
 
     await visit('/');
     // await pauseTest();
-    await click('[data-test="delete-email"]');
+    await click('[data-test="delete-celebrity"]');
     assert.equal(currentURL(), '/');
 
     assert.dom('[data-test="without-star"]').exists({count:2});
 
   });
+
+  test('edit a single celebrity', async function(assert) {
+    server.create('celebrity',{name: "toBeEdited"});
+
+    await visit('/celebrities/1/edit');
+    await fillIn('#name','Edited');
+    // await pauseTest();
+    await click('[data-test="save-celebrity"]');
+    assert.equal(currentURL(), '/celebrities/1');
+
+    assert.dom('[data-test="celebrity-name"]').hasText('Name: Edited');
+
+  });
+
+
+
+
+
+
 
 
 

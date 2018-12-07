@@ -1,4 +1,34 @@
-<div class="mainSection">
+
+<div class="starredSection">
+  <ul id="starredSection">
+    <h3>User Added Celebrities</h3>
+
+    {{#link-to "create"}}
+      Click here to add your favorite celebrity!
+    {{/link-to}}
+
+
+    {{#each model as |celebrity|}}
+      {{#if celebrity.userAdded}}
+        <li data-test="with-star">
+
+          <SingleEmail @celebrity = {{celebrity}} />
+
+        </li>
+
+        <br>
+
+      {{/if}}
+
+
+
+
+
+
+    {{/each}}
+  </ul>
+
+
 
 </div>
 

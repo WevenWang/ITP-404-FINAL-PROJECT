@@ -2,14 +2,14 @@
 <div  class="starred-section">
 
   <ul id="starredSection">
-    <h3>Starred Email</h3>
+    <h3>All Celebrities</h3>
 
 
-    {{#each model as |email|}}
-      {{#if email.starred}}
+    {{#each model as |celebrity|}}
+      {{#if celebrity.starred}}
         <li data-test="with-star">
 
-          <SingleEmail @email = {{email}} />
+          <SingleEmail @celebrity = {{celebrity}} />
 
         </li>
 
@@ -32,14 +32,14 @@
   <ul class="mainSection">
 
 
-    {{#each model as |email|}}
+    {{#each model as |celebrity|}}
 
 
-      {{#unless email.starred}}
+      {{#unless celebrity.starred}}
 
         <li data-test="without-star">
 
-          <SingleEmail @email = {{email}} />
+          <SingleEmail @celebrity = {{celebrity}} />
 
         </li>
 
